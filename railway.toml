@@ -1,0 +1,24 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "backend/Dockerfile"
+
+[deploy]
+startCommand = "uvicorn main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[environments.production]
+variables = {
+  SECRET_KEY = "your-secret-key-here",
+  ALLOWED_ORIGINS = "https://your-frontend.vercel.app",
+  DATABASE_URL = "${{Postgres.DATABASE_URL}}"
+}
+
+[environments.development]
+variables = {
+  SECRET_KEY = "dev-secret-key",
+  ALLOWED_ORIGINS = "http://localhost:3000",
+  DATABASE_URL = "sqlite:///./test.db"
+}
