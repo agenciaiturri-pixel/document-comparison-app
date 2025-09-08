@@ -1,0 +1,407 @@
+2025-09-08 05:21:12 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:21:27 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:21:27 - main - INFO - startup_event:56 - Upload directory: uploads
+2025-09-08 05:21:27 - main - INFO - startup_event:57 - Reports directory: reports
+2025-09-08 05:21:34 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:21:34 - main - INFO - startup_event:56 - Upload directory: uploads
+2025-09-08 05:21:34 - main - INFO - startup_event:57 - Reports directory: reports
+2025-09-08 05:21:41 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:21:41 - main - INFO - startup_event:56 - Upload directory: uploads
+2025-09-08 05:21:41 - main - INFO - startup_event:57 - Reports directory: reports
+2025-09-08 05:36:29 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:36:29 - main - INFO - startup_event:56 - Upload directory: uploads
+2025-09-08 05:36:29 - main - INFO - startup_event:57 - Reports directory: reports
+2025-09-08 05:36:35 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:36:35 - main - INFO - startup_event:56 - Upload directory: uploads
+2025-09-08 05:36:35 - main - INFO - startup_event:57 - Reports directory: reports
+2025-09-08 05:43:20 - document_comparison - ERROR - log_error_with_context:109 - Error: log_api_request() missing 2 required positional arguments: 'status_code' and 'duration' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 83, in upload_files
+    log_api_request("upload_files", {
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+        "commercial_invoice": commercial_invoice.filename,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "bill_of_lading": bill_of_lading.filename
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    })
+    ^^
+TypeError: log_api_request() missing 2 required positional arguments: 'status_code' and 'duration'
+2025-09-08 05:43:57 - document_comparison - ERROR - log_error_with_context:109 - Error: log_api_request() missing 2 required positional arguments: 'status_code' and 'duration' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 83, in upload_files
+    log_api_request("upload_files", {
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+        "commercial_invoice": commercial_invoice.filename,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "bill_of_lading": bill_of_lading.filename
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    })
+    ^^
+TypeError: log_api_request() missing 2 required positional arguments: 'status_code' and 'duration'
+2025-09-08 05:44:27 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:44:27 - main - INFO - startup_event:56 - Upload directory: uploads
+2025-09-08 05:44:27 - main - INFO - startup_event:57 - Reports directory: reports
+2025-09-08 05:44:39 - main - INFO - startup_event:50 - Starting Document Comparison API
+2025-09-08 05:44:39 - main - INFO - startup_event:56 - Upload directory: uploads
+2025-09-08 05:44:39 - main - INFO - startup_event:57 - Reports directory: reports
+2025-09-08 05:45:47 - main - INFO - upload_files:83 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:45:47 - document_comparison - ERROR - log_error_with_context:109 - Error: FileHandler.save_uploaded_file() missing 1 required positional argument: 'job_id' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 95, in upload_files
+    ci_path = await file_handler.save_uploaded_file(commercial_invoice, "commercial_invoice")
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FileHandler.save_uploaded_file() missing 1 required positional argument: 'job_id'
+2025-09-08 05:46:25 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:46:25 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:46:25 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:46:35 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:46:35 - document_comparison - ERROR - log_error_with_context:109 - Error: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 100, in upload_files
+    ci_path = await file_handler.save_uploaded_file(commercial_invoice, DocumentType.COMMERCIAL_INVOICE, job_id)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE'
+2025-09-08 05:46:57 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:46:57 - document_comparison - ERROR - log_error_with_context:109 - Error: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 100, in upload_files
+    ci_path = await file_handler.save_uploaded_file(commercial_invoice, DocumentType.COMMERCIAL_INVOICE, job_id)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE'
+2025-09-08 05:47:18 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:47:18 - document_comparison - ERROR - log_error_with_context:109 - Error: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 100, in upload_files
+    ci_path = await file_handler.save_uploaded_file(commercial_invoice, DocumentType.COMMERCIAL_INVOICE, job_id)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE'
+2025-09-08 05:47:34 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:47:34 - document_comparison - ERROR - log_error_with_context:109 - Error: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 100, in upload_files
+    ci_path = await file_handler.save_uploaded_file(commercial_invoice, DocumentType.COMMERCIAL_INVOICE, job_id)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'DocumentType' has no attribute 'COMMERCIAL_INVOICE'
+2025-09-08 05:47:54 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:47:54 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:47:54 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:48:11 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:48:12 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\c2c3f565-b0af-4cc9-9807-80bba2067595_20250908_104812_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:48:12 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\c2c3f565-b0af-4cc9-9807-80bba2067595_20250908_104812_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:48:12 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:48:12 - document_comparison - ERROR - log_error_with_context:109 - Error: 'DocumentProcessor' object has no attribute 'process_document' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 105, in upload_files
+    ci_data = await document_processor.process_document(ci_path, "commercial_invoice")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DocumentProcessor' object has no attribute 'process_document'
+2025-09-08 05:48:34 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:48:34 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\efbd769f-cbf5-41f9-ae26-0bd1a4f35cd3_20250908_104834_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:48:34 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\efbd769f-cbf5-41f9-ae26-0bd1a4f35cd3_20250908_104834_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:48:34 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:48:34 - document_comparison - ERROR - log_error_with_context:109 - Error: 'DocumentProcessor' object has no attribute 'process_document' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 105, in upload_files
+    ci_data = await document_processor.process_document(ci_path, "commercial_invoice")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DocumentProcessor' object has no attribute 'process_document'
+2025-09-08 05:49:02 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:49:02 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:49:02 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:49:47 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:49:47 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:49:47 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:49:57 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:49:57 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\e7d5864f-62ce-4290-a057-a28d119c3bf2_20250908_104957_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:49:57 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\e7d5864f-62ce-4290-a057-a28d119c3bf2_20250908_104957_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:49:57 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:49:57 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\e7d5864f-62ce-4290-a057-a28d119c3bf2_20250908_104957_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:49:57 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.06s
+2025-09-08 05:49:57 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:49:57 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\e7d5864f-62ce-4290-a057-a28d119c3bf2_20250908_104957_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:49:57 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:49:57 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:49:57 - document_comparison - ERROR - log_error_with_context:109 - Error: 'coroutine' object has no attribute 'dict' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 121, in upload_files
+    "comparison_result": comparison_result.dict(),
+                         ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'dict'
+2025-09-08 05:50:42 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:50:42 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\ee893665-a617-4303-a8d4-90def97a80fc_20250908_105042_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:50:42 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\ee893665-a617-4303-a8d4-90def97a80fc_20250908_105042_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:50:42 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:50:42 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\ee893665-a617-4303-a8d4-90def97a80fc_20250908_105042_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:50:43 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:50:43 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:50:43 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\ee893665-a617-4303-a8d4-90def97a80fc_20250908_105042_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:50:43 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:50:43 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:50:43 - document_comparison - ERROR - log_error_with_context:109 - Error: 'coroutine' object has no attribute 'dict' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 121, in upload_files
+    "comparison_result": comparison_result.dict(),
+                         ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'dict'
+2025-09-08 05:51:15 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:51:15 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:51:15 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:51:24 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:51:24 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:51:24 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:51:48 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:51:48 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\5e5bd3bb-aed5-4df7-9e58-afa8418cd7fa_20250908_105148_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:51:48 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\5e5bd3bb-aed5-4df7-9e58-afa8418cd7fa_20250908_105148_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:51:48 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:51:48 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\5e5bd3bb-aed5-4df7-9e58-afa8418cd7fa_20250908_105148_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:51:48 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.05s
+2025-09-08 05:51:48 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:51:48 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\5e5bd3bb-aed5-4df7-9e58-afa8418cd7fa_20250908_105148_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:51:48 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:51:48 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:51:48 - document_comparison - ERROR - log_error_with_context:109 - Error: 'coroutine' object has no attribute 'model_dump' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 121, in upload_files
+    "comparison_result": comparison_result.model_dump(),
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'model_dump'
+2025-09-08 05:52:14 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:52:14 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\46265c60-7a13-4e18-8086-77aef5f990b9_20250908_105214_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:52:14 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\46265c60-7a13-4e18-8086-77aef5f990b9_20250908_105214_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:52:14 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:52:14 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\46265c60-7a13-4e18-8086-77aef5f990b9_20250908_105214_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:52:14 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.02s
+2025-09-08 05:52:14 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:52:14 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\46265c60-7a13-4e18-8086-77aef5f990b9_20250908_105214_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:52:14 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:52:14 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:52:14 - document_comparison - ERROR - log_error_with_context:109 - Error: 'coroutine' object has no attribute 'model_dump' | Context: endpoint=upload_files
+Traceback (most recent call last):
+  File "C:\Users\lico1\docs\backend\main.py", line 121, in upload_files
+    "comparison_result": comparison_result.model_dump(),
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'model_dump'
+2025-09-08 05:52:39 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:52:39 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:52:39 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:52:51 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:52:52 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:52:52 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:53:06 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:53:06 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\a3a45833-10e8-4983-bd04-b06c3c9969a1_20250908_105306_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:53:06 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\a3a45833-10e8-4983-bd04-b06c3c9969a1_20250908_105306_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:53:06 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:53:06 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\a3a45833-10e8-4983-bd04-b06c3c9969a1_20250908_105306_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:53:06 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:53:06 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:53:06 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\a3a45833-10e8-4983-bd04-b06c3c9969a1_20250908_105306_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:53:07 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:53:07 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:53:07 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:53:07 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:53:25 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:53:25 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\d38668cb-d869-454d-a23d-8743655e7d29_20250908_105325_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:53:25 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\d38668cb-d869-454d-a23d-8743655e7d29_20250908_105325_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:53:25 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:53:25 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\d38668cb-d869-454d-a23d-8743655e7d29_20250908_105325_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:53:25 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:53:25 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:53:25 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\d38668cb-d869-454d-a23d-8743655e7d29_20250908_105325_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:53:25 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:53:25 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:53:25 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:53:25 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:54:07 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:54:07 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:54:07 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:54:18 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:54:18 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\03f17321-121b-4070-8ca3-3d86353c64a7_20250908_105418_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:54:18 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\03f17321-121b-4070-8ca3-3d86353c64a7_20250908_105418_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:54:18 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:54:18 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\03f17321-121b-4070-8ca3-3d86353c64a7_20250908_105418_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:54:18 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:54:18 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:54:18 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\03f17321-121b-4070-8ca3-3d86353c64a7_20250908_105418_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:54:18 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:54:18 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:54:18 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:54:18 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:54:44 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:54:44 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\06aff7fa-882b-4efc-9971-77338523ef36_20250908_105444_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:54:44 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\06aff7fa-882b-4efc-9971-77338523ef36_20250908_105444_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:54:44 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:54:44 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\06aff7fa-882b-4efc-9971-77338523ef36_20250908_105444_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:54:44 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:54:44 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:54:44 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\06aff7fa-882b-4efc-9971-77338523ef36_20250908_105444_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:54:44 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:54:44 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:54:44 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:54:44 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:55:28 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:55:28 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:55:28 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:55:39 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:55:39 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\c3446dd9-8111-4664-b633-d7057f5f46c0_20250908_105539_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:55:39 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\c3446dd9-8111-4664-b633-d7057f5f46c0_20250908_105539_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:55:39 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:55:39 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\c3446dd9-8111-4664-b633-d7057f5f46c0_20250908_105539_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:55:39 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:55:39 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:55:39 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\c3446dd9-8111-4664-b633-d7057f5f46c0_20250908_105539_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:55:39 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:55:39 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:55:39 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:55:39 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:55:39 - main - INFO - start_comparison:224 - Comparison request for job c3446dd9-8111-4664-b633-d7057f5f46c0 - already processed in upload
+2025-09-08 05:56:57 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:56:57 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\a4b51390-9720-4092-8a91-0f96ac26870f_20250908_105657_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:56:57 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\a4b51390-9720-4092-8a91-0f96ac26870f_20250908_105657_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:56:57 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:56:57 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\a4b51390-9720-4092-8a91-0f96ac26870f_20250908_105657_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:56:57 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:56:57 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:56:57 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\a4b51390-9720-4092-8a91-0f96ac26870f_20250908_105657_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:56:57 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:56:57 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:56:57 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:56:57 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:56:57 - main - INFO - start_comparison:224 - Comparison request for job a4b51390-9720-4092-8a91-0f96ac26870f - already processed in upload
+2025-09-08 05:58:27 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:58:27 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:58:27 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:58:45 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 05:58:45 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 05:58:45 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 05:59:02 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:59:02 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\79798c40-8725-43ed-8ef6-44e0a3bba63f_20250908_105902_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:59:02 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\79798c40-8725-43ed-8ef6-44e0a3bba63f_20250908_105902_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:59:02 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:59:02 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\79798c40-8725-43ed-8ef6-44e0a3bba63f_20250908_105902_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:59:02 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:59:02 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:59:02 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\79798c40-8725-43ed-8ef6-44e0a3bba63f_20250908_105902_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:59:02 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 05:59:02 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:59:02 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:59:02 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:59:02 - main - INFO - start_comparison:224 - Comparison request for job 79798c40-8725-43ed-8ef6-44e0a3bba63f - already processed in upload
+2025-09-08 05:59:02 - main - INFO - get_job_status:238 - Status request for job 79798c40-8725-43ed-8ef6-44e0a3bba63f - processing completed
+2025-09-08 05:59:02 - main - INFO - get_job_result:254 - Result request for job 79798c40-8725-43ed-8ef6-44e0a3bba63f
+2025-09-08 05:59:20 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:59:20 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\40a26484-cba9-487a-b275-2591b108420a_20250908_105920_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:59:20 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\40a26484-cba9-487a-b275-2591b108420a_20250908_105920_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:59:20 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 05:59:20 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\40a26484-cba9-487a-b275-2591b108420a_20250908_105920_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 05:59:20 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:59:20 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 05:59:20 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\40a26484-cba9-487a-b275-2591b108420a_20250908_105920_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 05:59:20 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 05:59:20 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 05:59:20 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 05:59:20 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 05:59:20 - main - INFO - start_comparison:224 - Comparison request for job 40a26484-cba9-487a-b275-2591b108420a - already processed in upload
+2025-09-08 05:59:20 - main - INFO - get_job_status:238 - Status request for job 40a26484-cba9-487a-b275-2591b108420a - processing completed
+2025-09-08 05:59:20 - main - INFO - get_job_result:254 - Result request for job 40a26484-cba9-487a-b275-2591b108420a
+2025-09-08 06:00:14 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 06:00:14 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 06:00:14 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 06:00:46 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:00:46 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\a4183149-5bd6-4751-946a-478fffdd759a_20250908_110046_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:00:46 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\a4183149-5bd6-4751-946a-478fffdd759a_20250908_110046_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:00:46 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 06:00:46 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\a4183149-5bd6-4751-946a-478fffdd759a_20250908_110046_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:00:46 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 06:00:46 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 06:00:46 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\a4183149-5bd6-4751-946a-478fffdd759a_20250908_110046_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:00:46 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 06:00:46 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 06:00:46 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 06:00:46 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 06:00:46 - main - INFO - start_comparison:224 - Comparison request for job a4183149-5bd6-4751-946a-478fffdd759a - already processed in upload
+2025-09-08 06:00:46 - main - INFO - get_job_status:238 - Status request for job a4183149-5bd6-4751-946a-478fffdd759a - processing completed
+2025-09-08 06:00:46 - main - INFO - get_job_result:254 - Result request for job a4183149-5bd6-4751-946a-478fffdd759a
+2025-09-08 06:01:11 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:01:11 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\d339e305-2a4d-4acc-86ed-803e13e2bfc4_20250908_110111_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:01:11 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\d339e305-2a4d-4acc-86ed-803e13e2bfc4_20250908_110111_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:01:11 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 06:01:11 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\d339e305-2a4d-4acc-86ed-803e13e2bfc4_20250908_110111_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:01:11 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 06:01:11 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 06:01:11 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\d339e305-2a4d-4acc-86ed-803e13e2bfc4_20250908_110111_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:01:11 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.03s
+2025-09-08 06:01:11 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 06:01:11 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 06:01:11 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 06:01:11 - main - INFO - start_comparison:224 - Comparison request for job d339e305-2a4d-4acc-86ed-803e13e2bfc4 - already processed in upload
+2025-09-08 06:01:11 - main - INFO - get_job_status:238 - Status request for job d339e305-2a4d-4acc-86ed-803e13e2bfc4 - processing completed
+2025-09-08 06:01:11 - main - INFO - get_job_result:254 - Result request for job d339e305-2a4d-4acc-86ed-803e13e2bfc4
+2025-09-08 06:01:41 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 06:01:41 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 06:01:41 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 06:02:16 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:02:16 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\3fcaa58c-4329-4b82-b9eb-b2a7eb1962f7_20250908_110216_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:02:16 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\3fcaa58c-4329-4b82-b9eb-b2a7eb1962f7_20250908_110216_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:02:16 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 06:02:16 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\3fcaa58c-4329-4b82-b9eb-b2a7eb1962f7_20250908_110216_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:02:16 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.05s
+2025-09-08 06:02:16 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 06:02:16 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\3fcaa58c-4329-4b82-b9eb-b2a7eb1962f7_20250908_110216_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:02:16 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 06:02:16 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 06:02:16 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 06:02:16 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 06:02:16 - main - INFO - start_comparison:224 - Comparison request for job 3fcaa58c-4329-4b82-b9eb-b2a7eb1962f7 - already processed in upload
+2025-09-08 06:02:16 - main - INFO - get_job_status:238 - Status request for job 3fcaa58c-4329-4b82-b9eb-b2a7eb1962f7 - processing completed
+2025-09-08 06:02:16 - main - INFO - get_job_result:254 - Result request for job 3fcaa58c-4329-4b82-b9eb-b2a7eb1962f7
+2025-09-08 06:02:47 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:02:47 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\904d7b82-ef22-4884-b87b-4aab91ce985b_20250908_110247_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:02:47 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\904d7b82-ef22-4884-b87b-4aab91ce985b_20250908_110247_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:02:47 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 06:02:47 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\904d7b82-ef22-4884-b87b-4aab91ce985b_20250908_110247_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:02:47 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 06:02:47 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 06:02:47 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\904d7b82-ef22-4884-b87b-4aab91ce985b_20250908_110247_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:02:47 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 06:02:47 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 06:02:47 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 06:02:47 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 06:02:47 - main - INFO - start_comparison:224 - Comparison request for job 904d7b82-ef22-4884-b87b-4aab91ce985b - already processed in upload
+2025-09-08 06:02:47 - main - INFO - get_job_status:238 - Status request for job 904d7b82-ef22-4884-b87b-4aab91ce985b - processing completed
+2025-09-08 06:02:47 - main - INFO - get_job_result:254 - Result request for job 904d7b82-ef22-4884-b87b-4aab91ce985b
+2025-09-08 06:03:32 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 06:03:32 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 06:03:32 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 06:04:06 - main - INFO - upload_files:84 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:04:06 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\24258c6e-eb6a-48e1-b3b7-bcacb2f07a4e_20250908_110406_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:04:06 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\24258c6e-eb6a-48e1-b3b7-bcacb2f07a4e_20250908_110406_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:04:06 - main - INFO - upload_files:104 - Processing commercial invoice...
+2025-09-08 06:04:06 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\24258c6e-eb6a-48e1-b3b7-bcacb2f07a4e_20250908_110406_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:04:06 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.05s
+2025-09-08 06:04:06 - main - INFO - upload_files:107 - Processing bill of lading...
+2025-09-08 06:04:06 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\24258c6e-eb6a-48e1-b3b7-bcacb2f07a4e_20250908_110406_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:04:06 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 06:04:06 - main - INFO - upload_files:111 - Comparing documents...
+2025-09-08 06:04:06 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 06:04:06 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 06:04:06 - main - INFO - start_comparison:224 - Comparison request for job 24258c6e-eb6a-48e1-b3b7-bcacb2f07a4e - already processed in upload
+2025-09-08 06:04:06 - main - INFO - get_job_status:238 - Status request for job 24258c6e-eb6a-48e1-b3b7-bcacb2f07a4e - processing completed
+2025-09-08 06:04:06 - main - INFO - get_job_result:254 - Result request for job 24258c6e-eb6a-48e1-b3b7-bcacb2f07a4e
+2025-09-08 06:08:58 - main - INFO - startup_event:51 - Starting Document Comparison API
+2025-09-08 06:08:58 - main - INFO - startup_event:57 - Upload directory: uploads
+2025-09-08 06:08:58 - main - INFO - startup_event:58 - Reports directory: reports
+2025-09-08 06:11:08 - main - INFO - upload_files:94 - Processing upload request - Commercial Invoice: a2ae3d04ab1341233a1a0d4ecb437e2e.pdf, Bill of Lading: 4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:11:08 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\invoice\c2284389-3081-4e33-a392-c11e93b74770_20250908_111108_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:11:08 - document_comparison - INFO - save_uploaded_file:56 - File saved successfully: uploads\bill_of_lading\c2284389-3081-4e33-a392-c11e93b74770_20250908_111108_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:11:08 - main - INFO - upload_files:114 - Processing commercial invoice...
+2025-09-08 06:11:08 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.INVOICE: uploads\invoice\c2284389-3081-4e33-a392-c11e93b74770_20250908_111108_a2ae3d04ab1341233a1a0d4ecb437e2e.pdf
+2025-09-08 06:11:08 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.05s
+2025-09-08 06:11:08 - main - INFO - upload_files:117 - Processing bill of lading...
+2025-09-08 06:11:08 - document_comparison - INFO - extract_data:141 - Starting OCR extraction for DocumentType.BILL_OF_LADING: uploads\bill_of_lading\c2284389-3081-4e33-a392-c11e93b74770_20250908_111108_4220321a1ab659ba5508afb7af8d9edf.pdf
+2025-09-08 06:11:08 - document_comparison - INFO - extract_data:169 - OCR extraction completed in 0.04s
+2025-09-08 06:11:08 - main - INFO - upload_files:121 - Comparing documents...
+2025-09-08 06:11:08 - document_comparison - INFO - compare_documents:66 - Starting document comparison
+2025-09-08 06:11:08 - document_comparison - INFO - compare_documents:100 - Document comparison completed in 0.00s
+2025-09-08 06:11:08 - main - INFO - start_comparison:234 - Comparison request for job c2284389-3081-4e33-a392-c11e93b74770 - already processed in upload
+2025-09-08 06:11:08 - main - INFO - get_job_status:248 - Status request for job c2284389-3081-4e33-a392-c11e93b74770 - processing completed
+2025-09-08 06:11:08 - main - INFO - get_job_result:264 - Result request for job c2284389-3081-4e33-a392-c11e93b74770
