@@ -1,9 +1,8 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, Depends
+from fastapi import Body, FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
-from typing import List, Optional
+from fastapi.responses import FileResponse
+from typing import Optional
 import os
-import tempfile
 import uuid
 from datetime import datetime
 
@@ -20,6 +19,7 @@ from app.services.document_processor import DocumentProcessor
 from app.services.comparison_engine import ComparisonEngine
 from app.services.report_generator import ReportGenerator
 from app.services.file_handler import FileHandler
+from app.services.session_manager import session_manager
 from app.utils.logger import setup_logger, log_api_request, log_error_with_context
 
 # Initialize FastAPI app
@@ -32,7 +32,7 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_origins=settings.ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -91,11 +91,18 @@ async def upload_files(
 ):
     """Upload and process two documents for comparison"""
     try:
+        log_api_request(
+            "upload_files",
+            {
+                "commercial_invoice": commercial_invoice.filename,
+                "bill_of_lading": bill_of_lading.filename,
+            },
+        )
         logger.info(f"Processing upload request - Commercial Invoice: {commercial_invoice.filename}, Bill of Lading: {bill_of_lading.filename}")
-        
+
         # Validate file types
         allowed_types = ["application/pdf", "image/jpeg", "image/png", "image/jpg"]
-        
+
         if commercial_invoice.content_type not in allowed_types:
             raise HTTPException(status_code=400, detail=f"Invalid file type for commercial invoice: {commercial_invoice.content_type}")
         
@@ -120,10 +127,13 @@ async def upload_files(
         # Perform comparison
         logger.info("Comparing documents...")
         comparison_result = await comparison_engine.compare_documents(ci_data, bol_data)
-        
+
         # Generate session ID for this comparison
         session_id = f"session_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-        
+
+        await session_manager.create_session(job_id, session_id)
+        await session_manager.store_results(job_id, ci_data, bol_data, comparison_result)
+
         return {
             "job_id": job_id,
             "session_id": session_id,
@@ -141,20 +151,30 @@ async def upload_files(
 async def compare_documents(request: ComparisonRequest):
     """Compare two document data objects"""
     try:
+        log_api_request("compare_documents", request.model_dump())
         logger.info(f"Starting document comparison for session: {request.session_id}")
-        
+
         # Perform comparison
         comparison_result = await comparison_engine.compare_documents(
             request.commercial_invoice,
             request.bill_of_lading
         )
-        
+
+        job_id = await session_manager.get_job_id_for_session(request.session_id)
+        if job_id:
+            await session_manager.store_results(
+                job_id=job_id,
+                invoice=request.commercial_invoice,
+                bill_of_lading=request.bill_of_lading,
+                comparison=comparison_result,
+            )
+
         return ComparisonResponse(
             session_id=request.session_id,
             comparison_result=comparison_result,
             timestamp=datetime.now()
         )
-        
+
     except Exception as e:
         log_error_with_context(e, {"endpoint": "compare_documents"})
         raise HTTPException(status_code=500, detail=f"Error comparing documents: {str(e)}")
@@ -163,12 +183,17 @@ async def compare_documents(request: ComparisonRequest):
 async def export_report(
     session_id: str,
     format: ExportFormat,
-    comparison_data: ComparisonSummary
+    comparison_data: Optional[ComparisonSummary] = Body(default=None)
 ):
     """Export comparison report in specified format"""
     try:
+        log_api_request("export_report", {"session_id": session_id, "format": format.value})
         logger.info(f"Exporting report for session {session_id} in {format} format")
-        
+
+        if comparison_data is None:
+            comparison_result = await session_manager.get_session_summary(session_id)
+            comparison_data = comparison_result.summary
+
         # Generate report
         if format == ExportFormat.PDF:
             report_path = report_generator.generate_pdf_report(comparison_data, session_id)
@@ -190,6 +215,8 @@ async def export_report(
             filename=filename
         )
         
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         log_error_with_context(e, {"endpoint": "export_report"})
         raise HTTPException(status_code=500, detail=f"Error generating report: {str(e)}")
@@ -198,14 +225,11 @@ async def export_report(
 async def get_session_info(session_id: str):
     """Get information about a comparison session"""
     try:
-        # This would typically query a database
-        # For now, return basic session info
-        return {
-            "session_id": session_id,
-            "status": "active",
-            "created_at": datetime.now().isoformat()
-        }
-        
+        log_api_request("get_session_info", {"session_id": session_id})
+        return await session_manager.get_session(session_id)
+
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         log_error_with_context(e, {"endpoint": "get_session_info"})
         raise HTTPException(status_code=500, detail=f"Error retrieving session info: {str(e)}")
@@ -215,14 +239,16 @@ async def delete_session(session_id: str):
     """Delete a comparison session and its files"""
     try:
         logger.info(f"Deleting session: {session_id}")
-        
-        # Clean up session files
-        # This would typically involve database cleanup and file deletion
-        
+        log_api_request("delete_session", {"session_id": session_id})
+        job_id = await session_manager.delete_session(session_id)
+        if job_id is None:
+            raise HTTPException(status_code=404, detail=f"Session {session_id} not found")
+        await file_handler.cleanup_job(job_id)
         return {
-            "message": f"Session {session_id} deleted successfully"
+            "message": f"Session {session_id} deleted successfully",
+            "job_id": job_id
         }
-        
+
     except Exception as e:
         log_error_with_context(e, {"endpoint": "delete_session"})
         raise HTTPException(status_code=500, detail=f"Error deleting session: {str(e)}")
@@ -231,12 +257,10 @@ async def delete_session(session_id: str):
 async def start_comparison(job_id: str):
     """Start document comparison process (already handled in upload)"""
     try:
-        logger.info(f"Comparison request for job {job_id} - already processed in upload")
-        return {
-            "message": "Comparison completed",
-            "job_id": job_id,
-            "status": "completed"
-        }
+        log_api_request("start_comparison", {"job_id": job_id})
+        return await session_manager.get_job_status(job_id)
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         logger.error(f"Error in comparison endpoint for job {job_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -245,14 +269,10 @@ async def start_comparison(job_id: str):
 async def get_job_status(job_id: str):
     """Get job processing status (processing completed in upload)"""
     try:
-        logger.info(f"Status request for job {job_id} - processing completed")
-        return {
-            "job_id": job_id,
-            "stage": "completed",
-            "progress": 100,
-            "status": "completed",
-            "message": "Processing completed successfully"
-        }
+        log_api_request("get_job_status", {"job_id": job_id})
+        return await session_manager.get_job_status(job_id)
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         logger.error(f"Error getting status for job {job_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -261,56 +281,12 @@ async def get_job_status(job_id: str):
 async def get_job_result(job_id: str):
     """Get job processing results"""
     try:
-        logger.info(f"Result request for job {job_id}")
-        # Since we process immediately, return a sample result structure
-        # In a real implementation, this would fetch from storage
-        return {
-            "id": job_id,
-            "timestamp": "2024-01-15T10:30:00Z",
-            "invoiceData": {
-                "invoice_number": "INV-2024-001",
-                "date": "2024-01-15",
-                "total_amount": "$10,000.00"
-            },
-            "blData": {
-                "bl_number": "BL-2024-001",
-                "date": "2024-01-15",
-                "total_amount": "$10,000.00"
-            },
-            "comparisons": [
-                {
-                    "field": "invoiceNumber",
-                    "invoiceValue": "INV-2024-001",
-                    "blValue": "INV-2024-001",
-                    "match": "exact",
-                    "confidence": 1.0,
-                    "notes": "Perfect match"
-                },
-                {
-                    "field": "total",
-                    "invoiceValue": "$10,000.00",
-                    "blValue": "$10,000.00",
-                    "match": "exact",
-                    "confidence": 1.0,
-                    "notes": "Perfect match"
-                }
-            ],
-            "summary": {
-                "totalFields": 15,
-                "matchingFields": 15,
-                "discrepantFields": 0,
-                "overallMatch": "high",
-                "overallRisk": "LOW",
-                "confidenceScore": 0.95,
-                "riskByCategory": {
-                    "parties": "LOW",
-                    "logistics": "LOW",
-                    "commercial": "LOW"
-                }
-            },
-            "processingTime": 2500,
-            "hash": "abc123def456"
-        }
+        log_api_request("get_job_result", {"job_id": job_id})
+        return await session_manager.get_job_result(job_id)
+    except KeyError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=409, detail=str(e))
     except Exception as e:
         logger.error(f"Error getting result for job {job_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
